@@ -1,0 +1,122 @@
+/*
+Theme Name:     MKF Enfold Child Theme
+Theme URI:      https://github.com/emiliogarza/mkf-enfold-child
+Description:    Child Theme for Enfold written by MKF Strategic Marketing
+Author: 		    MKF Strategic Markting
+Author URI: 	https://mkfstrategicmarketing.com
+Template:       enfold
+Version:        1.0.0
+*/
+
+/* ------- Insert custom styles below this line ------- */
+
+/* ======================================================================================================================================================
+INFO CIRCLE
+====================================================================================================================================================== */
+:root {
+  --molecularColor: #000;
+  --molecularFontColor: #fff;
+  --molecularDevice:mobile;
+  --molecularCenterCircleOpacity: 0.5;
+}
+.molecular {
+  padding: 0 2em;
+}
+.molecular__innercircle {
+  display: none;
+}
+.molecular__molecule {
+  display: block;
+  text-decoration: none;
+}
+.molecular__image {
+  border-radius: 50%;
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  vertical-align: top;
+}
+.molecular__paragraph {
+  border-radius: .5em;
+  background-color: var(--molecularColor);
+  padding: 2%;
+  color: var(--molecularFontColor);
+  width: 75%;
+  display: inline-block;
+  margin-left: 4%;
+}
+
+@media screen and (min-width: 450px) {
+  :root {
+      --molecularTranslateValue: 14em;
+      --molecularRotateValue: 0;
+      --molecularNegativeRotateValue: 0;
+      --molecularDevice:desktop;
+  }
+  .molecular {
+      display: flex;
+      position: relative;
+      width: 28em;
+      height: 28em;
+      padding: 4em; /*= 2em * 1.4 (2em = half the width of an img, 1.4 = sqrt(2))*/
+      border-radius: 50%;
+      margin: 0 auto 4em;
+      text-align: center;
+      border: dashed 1px;
+      border-radius: 50%;
+  }
+
+  .molecular__innercircle {
+    flex:1;
+    background: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 16px 19px 43px 3px rgba(0,0,0,0.43);
+    color: var(--molecularFontColor);
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4em;
+  }
+
+  .molecular__molecule {
+    border-radius: 50%;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4em;
+    height: 4em;
+    margin: -2em; /* 2em = 4em/2 */ /* half the width */
+    animation: molecularExpandFromNucleus 2s;
+    transform: rotate(var(--molecularRotateValue)) translate(14em) rotate(var(--molecularNegativeRotateValue));
+  }
+
+  .molecular__molecule:hover,
+  .molecular__molecule--selected {
+    border: 2px solid var(--molecularColor);
+  }
+
+  .molecular__image {
+    width: 4em;
+    max-width: 4em;
+  }
+
+  .molecular__paragraph {
+    display: none;
+  }
+
+  .molecular__paragraph strong {
+    width: 100%;
+  }
+
+  @keyframes molecularExpandFromNucleus {
+    0% {
+      transform: scale(1);
+    }
+    100% {}
+  }
+}
